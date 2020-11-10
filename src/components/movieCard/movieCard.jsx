@@ -4,7 +4,7 @@ import { Button, Card } from "react-bootstrap";
 import './movieCard.css'
 import { BsFillCaretRightFill } from "react-icons/bs";
 import Rate from '../rate/rate'
-
+import { Link } from "react-router-dom";
 
 function movieCard({ movies }) {
   return (
@@ -23,9 +23,10 @@ function movieCard({ movies }) {
           <Card.Title className="title"> {movies.title} </Card.Title>
          
           <Card.Text>{movies.descreption}...</Card.Text>
-          <a href="/">Read more</a>
+        <Link to="/page">  Read more</Link>
         </Card.Body>
-        <Button id="button"> <BsFillCaretRightFill /> Watch trailer </Button>
+
+     <Link to="/page"><Button id="button"> <BsFillCaretRightFill /> Watch trailer </Button>  </Link>
       </Card>
     </div>
   );

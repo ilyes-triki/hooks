@@ -6,6 +6,9 @@ import MovieData from "./components/movieCard/movieData";
 import MovieList from "./components/movieList/movieList";
 import Add from './components/add/add'
 import Filter from './components/filter/filter'
+import { Switch , Route , BrowserRouter} from 'react-router-dom'
+import page from './components/page'
+
 function App() {
  const [textSearch, setTextSearch] = useState("")
  const [searchRate, setsearchRate] = useState(0) 
@@ -15,15 +18,19 @@ const handleAdd = (newMovie) => {
 {  setmovie([...movie,newMovie] )}
 }
   return (
+   
     <div className="app">
-          
-           
+      
             <Add handleAdd={handleAdd}/>
             <Filter rating={searchRate} setsearchRate={setsearchRate} setTextSearch={setTextSearch} />
       <MovieList searchRate={searchRate} textSearch={textSearch} movie={movie} />
-
-
-    </div>
+      
+        <Switch>
+      <Route exact path='/page' component={page} />
+      </Switch>
+     </div>
+     
+  
   );
 }
 
